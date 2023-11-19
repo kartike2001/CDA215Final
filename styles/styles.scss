@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hacker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@keyframes cursorBlink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// Dark Mode Variables
+$primary-color: black;
+$secondary-color: rgb(0, 252, 253);
+$font-stack:'Hacker', monospace;
+$bg-color: black;
+$text-color: #fcfdff;
+$link-color-dark: #5aa7ff; // Dark mode link color
+$hover-color-dark: #e08b14; // Dark mode hover color
+$skills-color-dark: #00ff34;
+
+// Light Mode Variables
+$light-primary-color: #e6f4f3; // Light greenish gray
+$light-secondary-color: #8cbce1; // Dark greenish gray
+$box-shadow-hover: #0033ff; // Use your secondary color for shadow
+$light-text-color: #003bb6; // Darker green
+$link-color-light: #007c03; // Light mode link color
+$hover-color-light: #7c0303;
+$skills-color-light: rgba(91, 76, 39, 0.96);
+
+
+.section-content {
+  display: none;
+}
+
+// Root
+:root {
+  --bs-dark: #212529;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: $font-stack;
+  background: $primary-color;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+// Body styling
+body {
+  font-family: $font-stack;
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  #resume-hero, #letters-hero {
+    background-color: $secondary-color;
+    color: $bg-color;
+    &:hover {
+      background-color: $hover-color-dark;
+      color: $bg-color;
+      animation: zoomIn 1s;
+    }
+  }
+}
+
+// Navigation styling
+.navbar {
+  background-color: $primary-color !important;
+  perspective: 1000px;
+
+  a {
+    color: $secondary-color!important;
+    transform: translateZ(0);
+    transition: transform 0.3s;
+
+    &:hover {
+      color: $hover-color-dark !important;
+      transform: translateZ(20px);
+    }
+  }
+}
+
+.nav-item {
+  background-color: $primary-color; // Give a slight background color
+  border-radius: 5px; // Maintain the rounded corners
+  padding: 5px; // Add some space around your content
+  margin: 5px; // Add some space around your box
+  text-align: center;
+  @include transition(all 0.3s ease);
+  &:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.16); // Darken the background color slightly on hover
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.16); // Darken the background color slightly on hover
+  }
+}
+
+body.light .nav-item {
+  background-color: $light-secondary-color; // Lighten background color for light mode
+  border: none; // Remove border
+  padding: 5px; // Add some space around your content
+  margin: 5px; // Add some space around your box
+
+  // Add transition for smooth hover effect
+  @include transition(all 0.3s ease);
+  &:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.2); // Darken the background color slightly on hover
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2); // Darken the background color slightly on hover
+  }
+}
+
+.nav-item.active {
+  background-color: $hover-color-dark; // Change to the desired background color
+  color: $bg-color; // Change to the desired text color
+  pointer-events: none; // Disable hover and click events
+}
+
+.highlight {
+  opacity: 1;
+}
+
+.transparent  {
+  opacity: 0.5;
+}
+
+// Hero Section styling
+header.hero {
+  padding: 5em 0;
+  background: url('Neon Green and Black Tech Virtual Background.gif');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+
+  @include transition(all 0.5s ease);
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    .img-fluid {
+      border: 5px solid $secondary-color;
+      border-radius: 50%;
+      @include transition(all 0.3s ease);
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 237, 245, 0.50);
+      margin: 1em 0;
+      position: relative;
+      letter-spacing: -1px;
+      font-weight: bold;
+      font-family: "Press Start 2P", monospace;
+    }
+    p {
+      font-size: 1.5em;
+      text-shadow: 1px 1px 2px rgb(0, 237, 245, 0.50);
+
+    }
+    .lead{
+      min-height: 1.8em;
+      font-weight: bold;
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 2px solid white; // Change this to the color of your text
+        border-right: 2px solid transparent;
+        animation: cursorBlink 1s infinite;
+      }
+    }
+  }
+}
+
+// Section styling
+section {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  position: relative;
+  padding: 2em 0;
+  h2 {
+    color: $secondary-color;
+    display: inline-block;
+  }
+  h5 {
+    color: $secondary-color;
+  }
+  a {
+    color: $link-color-dark;
+    &:hover {
+      color: $hover-color-dark;
+    }
+  }
+}
+
+section.animate {
+  opacity: 1;
+}
+
+section::before {
+  content: "";
+  display: block;
+  height: 120px; /* adjust this to match your nav's height */
+  margin: -80px 0 0; /* negative value of the height */
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// Hidden class styling
+.hidden {
+  opacity: 0;
+  margin-left: -100px;
+}
+
+
+
+// Individual project styling
+.project {
+  border: 1px solid $primary-color;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+  p {
+    color: $skills-color-dark;
+  }
+  &:hover {
+    box-shadow: 0 0 20px $secondary-color;
+  }
+}
+#about{
+  h6{
+    font-weight: 1px;
+  }
+}
+
+#skills {
+  background-color: $bg-color;
+  color: $text-color;
+
+  h2 {
+    color: $secondary-color;
+  }
+
+  h5 {
+    color: $secondary-color;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      color: $text-color;
+      &:hover {
+        color: $hover-color-dark;
+      }
+    }
+  }
+
+  .card {
+    background-color: $secondary-color;
+    color: $bg-color;
+  }
+
+  .col-md-6 {
+    border: 1px solid $primary-color;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-in-out;
+    text-align: center;
+
+    p{
+      color: $text-color !important;
+      &:hover {
+        color: $hover-color-dark !important;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 20px $secondary-color;
+    }
+  }
+
+  .col-md-12 {
+    border: 1px solid $primary-color;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-in-out;
+    text-align: center;
+
+    p{
+      color: $text-color !important;
+      &:hover {
+        color: $hover-color-dark !important;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px $secondary-color;
+    }
+  }
+
+  // Light mode
+  body.light & {
+    background-color: $light-primary-color;
+    color: $light-text-color;
+
+    h2 {
+      color: black;
+    }
+
+    h5 {
+      color: black;
+    }
+
+
+    .card {
+      background-color: #cadcea;
+      color: black;
+    }
+
+
+    .col-md-12 {
+      border: 1px solid $light-secondary-color;
+      box-shadow: 0 0 20px $light-secondary-color;
+      transition: box-shadow 0.3s ease-in-out;
+      text-align: center;
+      p{
+        color: $light-text-color !important;
+        &:hover {
+          color: $hover-color-light !important;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px $box-shadow-hover;
+      }
+    }
+
+    .col-md-6 {
+      border: 1px solid $light-secondary-color;
+      box-shadow: 0 0 20px $light-secondary-color;
+      transition: box-shadow 0.3s ease-in-out;
+      text-align: center;
+      p{
+        color: $light-text-color !important;
+        &:hover {
+          color: $hover-color-light !important;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 20px $box-shadow-hover;
+      }
+    }
+  }
+}
+
+// Individual Job styling
+.job {
+  border: 1px solid $primary-color;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+  p {
+    color: $skills-color-dark;
+  }
+  &:hover {
+    box-shadow: 0 0 20px $secondary-color;
+  }
+}
+
+// Individual Project styling (Light Mode)
+body.light .project {
+  border: 1px solid $light-secondary-color;
+  box-shadow: 0 0 20px $light-secondary-color;
+  transition: box-shadow 0.3s ease-in-out;
+  p {
+    color: $skills-color-light;
+  }
+  &:hover {
+    box-shadow: 0 0 20px $box-shadow-hover;
+  }
+}
+
+
+
+// Individual Job styling (Light Mode)
+body.light .job {
+  border: 1px solid $light-secondary-color;
+  box-shadow: 0 0 20px $light-secondary-color;
+  transition: box-shadow 0.3s ease-in-out;
+  p {
+    color: $skills-color-light;
+  }
+  &:hover {
+    box-shadow: 0 0 20px $box-shadow-hover;
+  }
+}
+
+// Animations
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+
+// Dark Mode Styling
+body.light {
+  background-color: $light-primary-color;
+  color: $light-text-color;
+  #resume-hero, #letters-hero {
+    background-color: $light-secondary-color;
+    color: black;
+    &:hover {
+      background-color: $hover-color-light;
+      color: $light-primary-color;
+      animation: zoomIn 1s;
+    }
+  }
+}
+
+body.light .navbar {
+  background: $light-secondary-color !important;
+
+  a {
+    color: black !important;
+
+    &:hover {
+      color: $hover-color-light !important;
+    }
+  }
+}
+
+body.light header.hero {
+  background: url('Untitled.gif');
+  background-size: cover;
+  color: $light-primary-color;
+  text-align: center;
+
+  .container {
+    .img-fluid {
+      border: 5px solid black;
+    }
+    h1 {
+      color: black;
+      position: relative;
+      letter-spacing: -1px;
+    }
+    p {
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.45);
+      color: black;
+    }
+    .lead {
+      min-height: 1.8em;
+      font-weight: bold;
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 2px solid black; // Change this to the color of your text
+        border-right: 2px solid transparent;
+        animation: cursorBlink 1s infinite;
+      }
+    }
+  }
+}
+
+body.light section {
+  position: relative;
+  h2 {
+    color: black;
+    display: inline-block;
+  }
+  h5 {
+    color: black;
+  }
+  a {
+    color: $link-color-light;
+
+    &:hover {
+      color: $hover-color-light;
+    }
+  }
+}
+
+
+
+.theme-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.theme-container:hover {
+  opacity: 0.8;
+}
+
+@keyframes change {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.4);
+  }
+}
+
+.change {
+  animation-name: change;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+#theme-icon {
+  width: 30px;  // Change this to the desired width
+  height: 30px;  // Change this to the desired height
+}
+
+.btn {
+  font-size: 17px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  display: inline-block;
+  cursor: pointer;
+  @include transition(all 0.3s ease);
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+[data-aos="zoom-in"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}

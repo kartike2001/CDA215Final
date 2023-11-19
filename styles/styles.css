@@ -1,0 +1,502 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hacker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@keyframes cursorBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.section-content {
+  display: none;
+}
+
+:root {
+  --bs-dark: #212529;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "Hacker", monospace;
+  background: black;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hacker", monospace;
+  background-color: black;
+  color: #fcfdff;
+  margin: 0;
+  padding: 0;
+}
+body #resume-hero, body #letters-hero {
+  background-color: rgb(0, 252, 253);
+  color: black;
+}
+body #resume-hero:hover, body #letters-hero:hover {
+  background-color: #e08b14;
+  color: black;
+  animation: zoomIn 1s;
+}
+
+.navbar {
+  background-color: black !important;
+  perspective: 1000px;
+}
+.navbar a {
+  color: rgb(0, 252, 253) !important;
+  transform: translateZ(0);
+  transition: transform 0.3s;
+}
+.navbar a:hover {
+  color: #e08b14 !important;
+  transform: translateZ(20px);
+}
+
+.nav-item {
+  background-color: black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+body.light .nav-item {
+  background-color: #8cbce1;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+body.light .nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+body.light .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item.active {
+  background-color: #e08b14;
+  color: black;
+  pointer-events: none;
+}
+
+.highlight {
+  opacity: 1;
+}
+
+.transparent {
+  opacity: 0.5;
+}
+
+header.hero {
+  padding: 5em 0;
+  background: url("Neon Green and Black Tech Virtual Background.gif");
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+header.hero .container {
+  position: relative;
+  z-index: 2;
+}
+header.hero .container .img-fluid {
+  border: 5px solid rgb(0, 252, 253);
+  border-radius: 50%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+header.hero .container .img-fluid:hover {
+  transform: scale(1.03);
+}
+header.hero .container h1 {
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 237, 245, 0.5);
+  margin: 1em 0;
+  position: relative;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-family: "Press Start 2P", monospace;
+}
+header.hero .container p {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px rgba(0, 237, 245, 0.5);
+}
+header.hero .container .lead {
+  min-height: 1.8em;
+  font-weight: bold;
+}
+header.hero .container .lead:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 2px solid white;
+  border-right: 2px solid transparent;
+  animation: cursorBlink 1s infinite;
+}
+
+section {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  position: relative;
+  padding: 2em 0;
+}
+section h2 {
+  color: rgb(0, 252, 253);
+  display: inline-block;
+}
+section h5 {
+  color: rgb(0, 252, 253);
+}
+section a {
+  color: #5aa7ff;
+}
+section a:hover {
+  color: #e08b14;
+}
+
+section.animate {
+  opacity: 1;
+}
+
+section::before {
+  content: "";
+  display: block;
+  height: 120px; /* adjust this to match your nav's height */
+  margin: -80px 0 0; /* negative value of the height */
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+  margin-left: -100px;
+}
+
+.project {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.project p {
+  color: #00ff34;
+}
+.project:hover {
+  box-shadow: 0 0 20px rgb(0, 252, 253);
+}
+
+#skills {
+  background-color: black;
+  color: #fcfdff;
+}
+#skills h2 {
+  color: rgb(0, 252, 253);
+}
+#skills h5 {
+  color: rgb(0, 252, 253);
+}
+#skills ul {
+  list-style: none;
+}
+#skills ul li {
+  color: #fcfdff;
+}
+#skills ul li:hover {
+  color: #e08b14;
+}
+#skills .card {
+  background-color: rgb(0, 252, 253);
+  color: black;
+}
+#skills .col-md-6 {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+#skills .col-md-6 p {
+  color: #fcfdff !important;
+}
+#skills .col-md-6 p:hover {
+  color: #e08b14 !important;
+}
+#skills .col-md-6:hover {
+  box-shadow: 0 0 20px rgb(0, 252, 253);
+}
+#skills .col-md-12 {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+#skills .col-md-12 p {
+  color: #fcfdff !important;
+}
+#skills .col-md-12 p:hover {
+  color: #e08b14 !important;
+}
+#skills .col-md-12:hover {
+  box-shadow: 0 0 20px rgb(0, 252, 253);
+}
+body.light #skills {
+  background-color: #e6f4f3;
+  color: #003bb6;
+}
+body.light #skills h2 {
+  color: black;
+}
+body.light #skills h5 {
+  color: black;
+}
+body.light #skills .card {
+  background-color: #cadcea;
+  color: black;
+}
+body.light #skills .col-md-12 {
+  border: 1px solid #8cbce1;
+  box-shadow: 0 0 20px #8cbce1;
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+body.light #skills .col-md-12 p {
+  color: #003bb6 !important;
+}
+body.light #skills .col-md-12 p:hover {
+  color: #7c0303 !important;
+}
+body.light #skills .col-md-12:hover {
+  box-shadow: 0 0 20px #0033ff;
+}
+body.light #skills .col-md-6 {
+  border: 1px solid #8cbce1;
+  box-shadow: 0 0 20px #8cbce1;
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+body.light #skills .col-md-6 p {
+  color: #003bb6 !important;
+}
+body.light #skills .col-md-6 p:hover {
+  color: #7c0303 !important;
+}
+body.light #skills .col-md-6:hover {
+  box-shadow: 0 0 20px #0033ff;
+}
+
+.job {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.job p {
+  color: #00ff34;
+}
+.job:hover {
+  box-shadow: 0 0 20px rgb(0, 252, 253);
+}
+
+body.light .project {
+  border: 1px solid #8cbce1;
+  box-shadow: 0 0 20px #8cbce1;
+  transition: box-shadow 0.3s ease-in-out;
+}
+body.light .project p {
+  color: rgba(91, 76, 39, 0.96);
+}
+body.light .project:hover {
+  box-shadow: 0 0 20px #0033ff;
+}
+
+body.light .job {
+  border: 1px solid #8cbce1;
+  box-shadow: 0 0 20px #8cbce1;
+  transition: box-shadow 0.3s ease-in-out;
+}
+body.light .job p {
+  color: rgba(91, 76, 39, 0.96);
+}
+body.light .job:hover {
+  box-shadow: 0 0 20px #0033ff;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+body.light {
+  background-color: #e6f4f3;
+  color: #003bb6;
+}
+body.light #resume-hero, body.light #letters-hero {
+  background-color: #8cbce1;
+  color: black;
+}
+body.light #resume-hero:hover, body.light #letters-hero:hover {
+  background-color: #7c0303;
+  color: #e6f4f3;
+  animation: zoomIn 1s;
+}
+
+body.light .navbar {
+  background: #8cbce1 !important;
+}
+body.light .navbar a {
+  color: black !important;
+}
+body.light .navbar a:hover {
+  color: #7c0303 !important;
+}
+
+body.light header.hero {
+  background: url("Untitled.gif");
+  background-size: cover;
+  color: #e6f4f3;
+  text-align: center;
+}
+body.light header.hero .container .img-fluid {
+  border: 5px solid black;
+}
+body.light header.hero .container h1 {
+  color: black;
+  position: relative;
+  letter-spacing: -1px;
+}
+body.light header.hero .container p {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.45);
+  color: black;
+}
+body.light header.hero .container .lead {
+  min-height: 1.8em;
+  font-weight: bold;
+}
+body.light header.hero .container .lead:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 2px solid black;
+  border-right: 2px solid transparent;
+  animation: cursorBlink 1s infinite;
+}
+
+body.light section {
+  position: relative;
+}
+body.light section h2 {
+  color: black;
+  display: inline-block;
+}
+body.light section h5 {
+  color: black;
+}
+body.light section a {
+  color: #007c03;
+}
+body.light section a:hover {
+  color: #7c0303;
+}
+
+.theme-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.theme-container:hover {
+  opacity: 0.8;
+}
+
+@keyframes change {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
+.change {
+  animation-name: change;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+#theme-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.btn {
+  font-size: 17px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.02);
+}
+
+[data-aos=zoom-in] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/*# sourceMappingURL=styles.css.map */
