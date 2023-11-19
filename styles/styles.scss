@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hacker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 @mixin transition($args) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -15,7 +22,7 @@
 // Dark Mode Variables
 $primary-color: black;
 $secondary-color: rgb(0, 252, 253);
-$font-stack:'Consolas', 'Courier New', monospace;
+$font-stack:'Hacker', monospace;
 $bg-color: black;
 $text-color: #fcfdff;
 $link-color-dark: #5aa7ff; // Dark mode link color

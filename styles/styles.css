@@ -1,8 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hacker&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @keyframes cursorBlink {
   0% {
     opacity: 1;
@@ -25,14 +20,14 @@
 html, body {
   padding: 0;
   margin: 0;
-  font-family: "Hacker", monospace;
+  font-family: 'Consolas', 'Courier New', monospace;
   background: black;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Hacker", monospace;
+  font-family: 'Consolas', 'Courier New', monospace;
   background-color: black;
   color: #fcfdff;
   margin: 0;
